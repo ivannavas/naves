@@ -43,15 +43,15 @@ cd naves
 ```
 
 ```bash
-    mvn clean install
+mvn clean install
 ```
 
 ```bash
-    docker build -t naves .
+docker build -t naves .
 ```
 
 ```bash
-    docker-compose up
+docker-compose up
 ```
 
 ## Ejecución y Uso
