@@ -20,7 +20,7 @@ Este proyecto es una API construida con **Spring Boot** que permite gestionar na
 
 ### Funcionalidades Obligatorias
 
-- Se ha realizado el crud de naves tal como se solicitó. Para probar los endpoint puedes acceder a la ruta `/swagger-ui/index.html#/` o utilizar [la librería de postman](./libreria_postman.json)
+- Se ha realizado el crud de naves tal como se solicitó. Para probar los endpoint puedes acceder a la ruta `/swagger-ui/index.html#/` o utilizar [la librería de postman](./postman_collection.json)
 - **Test unitarios**: Se han realizado pruebas en los servicios de [usuario](./src/test/java/com/ivan/naves/service/usuario/UsuarioServiceTest.java) y [nave](./src/test/java/com/ivan/naves/service/nave/NaveServiceTest.java) que, aunque no proporcionan una cobertura completa de la aplicación cubren los puntos centrales de la misma.
 - **Aspecto para logs en IDs negativos**: [Implementado aquí](./src/main/java/com/ivan/naves/aspect/LoggingAspect.java).
 - **Manejo centralizado de excepciones**: [Implementado aquí](./src/main/java/com/ivan/naves/advice/ExceptionControllerAdvice.java).
@@ -58,5 +58,5 @@ docker-compose up
 
 - La aplicación corre en el puerto `8080`.
 - Utiliza la base de datos H2 en memoria para almacenar las naves espaciales.
-- Para una mejor experiencia se recomienda importar [la librería de postman](./libreria_postman.json)
+- Para una mejor experiencia se recomienda importar [la librería de postman](./postman_collection.json)
 - Para poder utilizar la api necesitas obtener un bearer token con el endpoint `(POST) /api/usuario/login`. Puedes utilizar el usuario por defecto (nombre: admin / contraseña: admin) o crear uno con `(POST) /api/usuario`.
