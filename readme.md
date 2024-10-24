@@ -3,14 +3,16 @@
 Este proyecto es una API construida con **Spring Boot** que permite gestionar naves espaciales de series y películas. La API soporta operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre una base de datos de naves espaciales. Además, incluye funcionalidades adicionales como paginación, búsquedas personalizadas, manejo centralizado de excepciones, y caché.
 
 ## Contenidos
+
 - [Requisitos](#requisitos)
 - [Características del Proyecto](#características-del-proyecto)
-    - [Funcionalidades Obligatorias](#funcionalidades-obligatorias)
-    - [Mejoras Opcionales](#mejoras-opcionales)
+  - [Funcionalidades Obligatorias](#funcionalidades-obligatorias)
+  - [Mejoras Opcionales](#mejoras-opcionales)
 - [Instrucciones de Instalación](#instrucciones-de-instalación)
 - [Ejecución y Uso](#ejecución-y-uso)
 
 ## Requisitos
+
 - **Docker**
 - **Docker Compose**
 
@@ -26,10 +28,10 @@ Este proyecto es una API construida con **Spring Boot** que permite gestionar na
 
 ### Mejoras Opcionales
 
-- **Gestión de scripts DDL**: Se ha utilizado ``Flyway`` que, aunque no se utiliza en este caso para los scripts DDL ya que la gestión de la base de datos la realiza JPA, podría utilizarse para este propósito. En este caso se está utilizando para la ejecución de ciertos scripts que nutren de datos la aplicación al inicio y de cara a tener datos coherentes para los test.
+- **Gestión de scripts DDL**: Se ha utilizado `Flyway` que, aunque no se utiliza en este caso para los scripts DDL ya que la gestión de la base de datos la realiza JPA, podría utilizarse para este propósito. En este caso se está utilizando para la ejecución de ciertos scripts que nutren de datos la aplicación al inicio y de cara a tener datos coherentes para los test.
 - **Test de integración**: Se ha realizado una prueba de integración para comprobar que la integración con kafka sea correcta en el [NaveServiceTest](./src/test/java/com/ivan/naves/service/nave/NaveServiceTest.java). Además se prueba también en todos los tests la integración entre servicio, repositorio y aplicación de forma completa ya que estamos levantando todo el contexto de Spring en cada uno de ellos.
 - **Dockerización**: El proyecto está construido con `Docker` y `Docker Compose`.
-- **Documentación de la API**: La API está documentada utilizando `Swagger`. Se puede acceder a esta documentación en la ruta `/swagger-ui/index.html#/`. 
+- **Documentación de la API**: La API está documentada utilizando `Swagger`. Se puede acceder a esta documentación en la ruta `/swagger-ui/index.html#/`.
 - **Seguridad en la API**: Se ha implementado autenticación utilizando `JWT` y añadiendo un pequeño sistema de usuarios.
 - **Mensajería con Kafka**: Se ha añadido un producer que envía los datos de creación de nuevas naves a un topic.
 
@@ -37,7 +39,11 @@ Este proyecto es una API construida con **Spring Boot** que permite gestionar na
 
 ```bash
 git clone https://github.com/ivannavas/naves.git
-cd repo
+cd naves
+```
+
+```bash
+docker build -t naves .
 ```
 
 ```bash
@@ -48,6 +54,5 @@ docker-compose up
 
 - La aplicación corre en el puerto `8080`.
 - Utiliza la base de datos H2 en memoria para almacenar las naves espaciales.
-- Para una mejor experiencia se recomienda importar [la librería de postman](./libreria_postman.json) 
+- Para una mejor experiencia se recomienda importar [la librería de postman](./libreria_postman.json)
 - Para poder utilizar la api necesitas obtener un bearer token con el endpoint `(POST) /api/usuario/login`. Puedes utilizar el usuario por defecto (nombre: admin / contraseña: admin) o crear uno con `(POST) /api/usuario`.
-
